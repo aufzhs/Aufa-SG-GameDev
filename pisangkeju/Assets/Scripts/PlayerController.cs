@@ -51,4 +51,9 @@ public class PlayerController : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, -mapHalfSize.y, mapHalfSize.y);
         rb.position = pos;
     }
+    public void UpgradeMoveSpeed(float percent)
+    {
+        moveSpeed *= 1f + percent;
+        Debug.Log($"Move speed jadi {moveSpeed:F2}");
+    }
 }

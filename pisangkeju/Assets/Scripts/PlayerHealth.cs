@@ -51,6 +51,12 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth = Mathf.Min(maxHealth, CurrentHealth + amount);  // Tambah HP, maksimal sampai penuh
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
     }
+    public void IncreaseMaxHealth(int amount)
+    {
+        maxHealth += amount;                                   // Naikkan batas HP
+        CurrentHealth += amount;                               // HP sekarang ikut naik (bonus langsung kerasa)
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);     // Umumin supaya bar HP ikut update
+    }
 
     private void Die()
     {
